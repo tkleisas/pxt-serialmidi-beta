@@ -2,7 +2,8 @@
 namespace serialmidi
 {
     let bufr = pins.createBuffer(3);
-    //% blockId=sendNoteOn block="send Note On channel %channel | note %note | velocity %velocity"
+    //% blockId=sendNoteOn 
+    //% block = "send Note On | channel %channel|note %note|velocity %velocity"
     export function sendNoteOn(channel:number, note:number, velocity:number): void
     {
         bufr.setNumber(NumberFormat.Int8LE, 0, 144 + channel);

@@ -1,7 +1,7 @@
 //% weight=70 icon="\uf044" color=#EC7505
 namespace serialmidi
 {
-    var bufr = pins.createBuffer(3);
+    let bufr = pins.createBuffer(3);
     //% blockId=sendNoteOn block="send Note On channel %channel note %note velocity %velocity"
     export function sendNoteOn(channel:number, note:number, velocity:number): void
     {

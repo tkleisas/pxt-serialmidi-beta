@@ -3,7 +3,7 @@ namespace serialmidi
 {
     let bufr = pins.createBuffer(3);
     //% blockId=send_note_on 
-    //% block = "send Note On|channel %channel|note %note|velocity %velocity"
+    //% block = "sendNoteOn channel %channel|note %note|velocity %velocity"
     export function sendNoteOn(channel:number, note:number, velocity:number): void
     {
         bufr.setNumber(NumberFormat.Int8LE, 0, 144 + channel);
@@ -12,8 +12,10 @@ namespace serialmidi
         serial.writeBuffer(bufr);
     }
     
-    //% blockId=send_midi_cc block="send CC|channel %channel|controller %controller|value %value"
-    export function sendCC(channel: number, controller: number, value: number): void {
+    //% blockId=send_midi_cc
+    //% block = "send CC channel %channel|controller %controller|value %value"
+    export function sendCC(channel: number, controller: number, value: number): void
+    {
         bufr.setNumber(NumberFormat.Int8LE, 0, 176 + channel);
         bufr.setNumber(NumberFormat.Int8LE, 1, controller);
         bufr.setNumber(NumberFormat.Int8LE, 2, value);
